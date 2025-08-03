@@ -2,6 +2,8 @@
 name: 'jaffle_models'
 version: '1.0.0'
 config-version: 2
+dbt-cloud:
+    project-id: 70471823455971
 
 # This setting configures which "profile" dbt uses for this project.
 profile: 'default'
@@ -20,7 +22,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   jaffle_models:
-    marts:
-      +materialized: table   
     staging:
       +materialized: view
+      +schema: jaffle_intermediate
+    marts:
+      +materialized: table
+      +schema: jaffle_marts
+
