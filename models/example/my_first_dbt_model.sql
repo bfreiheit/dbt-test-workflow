@@ -7,21 +7,9 @@
     Try changing "table" to "view" below
 */
 
-{{ config(materialized='table') }}
+{{ config(materialized='view') }}
 
-with source_data as (
+select date_trunc('day', ordered_at)
+from {{ source('raw', 'raw_orders') }}
+where id = '2b1aefde-b644-4d6e-ae71-dd7f8c3d73c9'
 
-    select 1 as id
-    union all
-    select null as id
-
-)
-
-select *
-from source_data
-
-/*
-    Uncomment the line below to remove records with null `id` values
-*/
-
--- where id is not null
