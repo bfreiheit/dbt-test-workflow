@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: raw
+    database: mystic-pact-455314-g4   # Dein GCP Project ID
+    schema: jaffle_raw            # Dein BigQuery Dataset Name
+    tables:
+      - name: raw_customers    
+      - name: raw_orders
+      - name: raw_items
+      - name: raw_products
+      - name: raw_stores
+      - name: raw_supplies   
+      - name: raw_tweets
