@@ -27,5 +27,5 @@ models:
       +schema: jaffle_intermediate
     marts:
       +materialized: table
-      +schema: jaffle_marts
+      +schema: jaffle_output
 
